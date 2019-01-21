@@ -46,7 +46,7 @@ if (params.help)
 // Parameters Init
 //
 params.input         = null
-params.output_dir    = "results_atacpaired"
+params.output_dir    = "results_nopairedatac"
 params.gatk_exec     = null
 params.dbsnp         = null
 params.onekg         = null
@@ -107,12 +107,13 @@ inputbam = Channel
         publishDir "$output/$Sample/$sampletype", mode: 'copy'
         module 'speedseq'
 
-        cpus 12
+        //cpus 12
+        cpus 24
         executor 'sge'
             //memory { 5.GB * task.attempt }
         penv 'smp'
         errorStrategy { task.exitStatus == 140 ? 'retry' : 'terminate' }
-        clusterOptions "-l h_vmem=6G -l h_rss=200G -R y -l h_rt=72:00:00 -cwd -V"
+        clusterOptions "-l h_vmem=6G -l h_rss=240G -R y -l h_rt=96:00:00 -cwd -V"
 
         input:
         set Sample, sampletype, file(bamfile) from inputbam
@@ -126,7 +127,7 @@ inputbam = Channel
         file_tag_new = file_tag+'.realign'
 
         '''
-        speedseq realign -t 8 -M 48 /gpfs/commons/home/doanea-934/DB/hg38/hg38-noalt/BWAIndex/genome.fa !{bamfile}
+        speedseq realign -t 20 -M 36 /gpfs/commons/home/doanea-934/DB/hg38/hg38-noalt/BWAIndex/genome.fa !{bamfile}
         '''
 
     }
