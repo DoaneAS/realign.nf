@@ -52,7 +52,7 @@ params.onekg         = null
 params.mills         = null
 params.interval_list = null
 params.sampleindex         = null
-params.bwa_index    =    '/gpfs/commons/home/doanea-934/DB/hg38/hg38-noalt/BWAIndex'
+params.bwa_index    =    '/gpfs/commons/home/adoane/DB/hg38/hg38-noalt/BWAIndex'
 //
 // Parse Input Parameters
 //
@@ -126,7 +126,7 @@ inputbam = Channel
         file_tag_new = file_tag+'.realign'
 
         '''
-        speedseq realign -t 20 -M 36 /gpfs/commons/home/doanea-934/DB/hg38/hg38-noalt/BWAIndex/genome.fa !{bamfile}
+        speedseq realign -t 20 -M 36 /gpfs/commons/home/adoane/DB/hg38/hg38-noalt/BWAIndex/genome.fa !{bamfile}
         '''
 
     }
