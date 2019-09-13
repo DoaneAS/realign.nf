@@ -67,19 +67,6 @@ params.bwa_index    =    '/gpfs/commons/home/adoane/DB/hg38/hg38-noalt/BWAIndex'
 index = file(params.sampleindex)
 output    = file(params.output_dir)
 bwa_index = params.bwa_index
-        //GATK      = params.gatk_exec
-        //ref       = file(params.ref_fasta)
-        //interList = file(params.interval_list)
-        //ref_dbsnp = file(params.dbsnp)
-        //ref_1kg   = file(params.onekg)
-        //ref_mills = file(params.mills)
-        //ref_dict  = ref.parent / ref.baseName + ".dict"
-        //ref_in    = ref.parent / ref.baseName + ".fasta.fai"
-        //ref_amb   = ref.parent / ref.baseName + ".fasta.amb"
-        //ref_ann   = ref.parent / ref.baseName + ".fasta.ann"
-        //ref_bwt   = ref.parent / ref.baseName + ".fasta.bwt"
-        //ref_pac   = ref.parent / ref.baseName + ".fasta.pac"
-        //ref_sa    = ref.parent / ref.baseName + ".fasta.sa"
 
 
 inputbam = Channel
